@@ -1,18 +1,20 @@
 from flask import Flask, jsonify, request, render_template
 from flask_cors import CORS
+from dotenv import load_dotenv
+load_dotenv()
+from config import Config
 from database import (
     init_db, add_employee, get_all_employees, get_employee_by_id,
     search_employees, filter_by_department, get_all_departments,
     get_salary_info, update_employee, delete_employee
 )
-import os
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
+app.config.from_object(Config)
 CORS(app)
 
-# Initialize database on startup
-if not os.path.exists('employees.db'):
-    init_db()
+# Initialize database on startup (creates tables if needed)
+init_db()
 
 # ============= Frontend Routes =============
 
