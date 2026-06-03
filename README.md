@@ -273,10 +273,4 @@ If you encounter database errors:
 - Email notifications
 - User authentication and authorization
 
-## License
 
-This project is free to use and modify for educational purposes.
-
-## Support
-
-For issues or questions, please check the code comments or review the API endpoints documentation above.
